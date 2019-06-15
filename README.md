@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to javascript-projects 👋</h1>
+<h1 align="center">Welcome to my collection of Javascript projects 👋</h1>
 <p>
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/randop/javascript-projects#readme">
