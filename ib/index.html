@@ -6,7 +6,8 @@
         <title>IN BETWEEN CARD GAME</title>
         <style>
             table {
-                font-size: 24px;
+                font-size: 32px;
+                border-collapse: collapse;
             }
 
             .black {
@@ -16,9 +17,36 @@
             .red {
                 color: red;
             }
+
+            th {
+                font-size: 24px;
+            }
+
+            tr:nth-child(even) {
+                background: #e2e3e5; 
+            }
+
+            tr:nth-child(even) td {
+                border-top: solid 1px #000;
+                border-bottom: solid 1px #000;
+            }
+
+            td {
+                text-align: center;
+                padding: 6px;
+            }
+
+            .ibcard {
+                background: #fff3cd;                    
+            }
+
+            .win {
+                background: #2ECC40;
+            }
         </style>
     </head>    
     <body>
+        <h1>IN-BETWEEN</h1>
         <div id="app"></div>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>

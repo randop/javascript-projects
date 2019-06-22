@@ -30,7 +30,8 @@ function playGame() {
             chance: 0,
             decision: "",
             winner: false, 
-            turn: 0
+            turn: 0,
+            remarks: ""
         };
 
         /***
@@ -164,21 +165,29 @@ class App extends React.Component {
     render() {        
         const rows = this.state.game.map(function(play){            
             return <tr>
-                <td>Player #{play.id}</td>
-                <td>First Card: <Card value={play.firstCard} /></td>
-                <td>Second Card: <Card value={play.secondCard} /></td>
-                <td>In Between Card: <Card value={play.inBetweenCard} /></td>
+                <td>#{play.id}</td>
+                <td><Card value={play.firstCard} /> <Card value={play.secondCard} /></td>                
+                <td className="ibcard"><Card value={play.inBetweenCard} /></td>
                 {play.didWin===true && (
-                    <td>Win: Yes</td>    
+                    <td className="win">Yes</td>    
                 )}
                 {play.didWin===false && (
-                    <td>Win: No</td>    
+                    <td>No</td>    
                 )}
-                <td>Chance: {play.chance}%</td>
+                <td>{play.chance}%</td>                
             </tr>;
         });
         
-        return <table border="1" cellSpacing="1" cellPadding="5">
+        return <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Cards</th>
+                    <th>&nbsp;</th>
+                    <th>Win</th>
+                    <th>Chance</th>                    
+                </tr>
+            </thead>
             <tbody>
                 {rows}
             </tbody>
