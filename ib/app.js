@@ -13,6 +13,7 @@ const THE_CARDS = [
     12.1, 12.2, 12.3, 12.4,
     13.1, 13.2, 13.3, 13.4
 ];
+
 const THE_SEATS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
 function playGame() {
@@ -152,7 +153,26 @@ const Card = props => {
     const codepoint = 0x1F0A0 + suitIndex * 0x10 + rankIndex;
 	const tag = String.fromCodePoint(codepoint);    
     return <span className={cardColor}>{tag}</span>;
-} 
+}
+
+const CardReaction = props => {
+  let reaction = "";
+  if (props.didWin) {
+    reaction = "👍";
+  } else {
+    reaction = "👎";
+  }
+  if (props.chance>=75 && !props.didWin) {
+    reaction = "🤣";
+  }
+  if (props.chance<=50 && props.didWin) {
+    reaction = "🤩";
+  }
+  if (props.chance==0 && !props.didWin) {
+    reaction = "🐒";
+  }
+  return <span>{reaction}</span>;
+}
 
 class App extends React.Component {
     constructor(props) {
@@ -160,38 +180,49 @@ class App extends React.Component {
         this.state = {
             game: playGame()
         }
+        this.playAgain = this.playAgain.bind(this);
+    }
+  
+    playAgain() {
+      this.setState({
+        game: playGame()
+      })
     }
 
     render() {        
         const rows = this.state.game.map(function(play){            
             return <tr>
                 <td>#{play.id}</td>
-                <td><Card value={play.firstCard} /> <Card value={play.secondCard} /></td>                
-                <td className="ibcard"><Card value={play.inBetweenCard} /></td>
+                <td className="card-item"><Card value={play.firstCard} /> <Card value={play.secondCard} /></td>                
+                <td className="card-item ibcard"><Card value={play.inBetweenCard} /></td>
                 {play.didWin===true && (
                     <td className="win">Yes</td>    
                 )}
                 {play.didWin===false && (
                     <td>No</td>    
                 )}
-                <td>{play.chance}%</td>                
+                <td>{play.chance}%</td>
+                <td><CardReaction chance={play.chance} didWin={play.didWin} /></td>
             </tr>;
         });
         
-        return <table>
+        return <div>
+            <div><input type="button" value="Play Again" onClick={this.playAgain} /></div>
+            <table>
             <thead>
                 <tr>
                     <th>Player</th>
                     <th>Cards</th>
                     <th>&nbsp;</th>
                     <th>Win</th>
-                    <th>Chance</th>                    
+                    <th>Chance</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
                 {rows}
             </tbody>
-        </table>;
+        </table></div>;
     }
 }
 
