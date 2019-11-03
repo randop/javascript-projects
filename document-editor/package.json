@@ -8,6 +8,9 @@
     "react-scripts": "3.0.1",
     "throttle-debounce": "^2.1.0"
   },
+  "devDependencies": {
+    "set-value": ">=2.0.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
