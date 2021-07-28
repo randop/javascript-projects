@@ -2,18 +2,20 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
+import 'react-virtualized/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import './App.css';
 
-import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
+import Home from './pages/home';
+import Simulator from './pages/simulator';
+import Report from './pages/report';
 
 function App() {
   return (
@@ -55,25 +57,6 @@ function App() {
     </div>
     </Router>
   );
-}
-
-function Home() {
-  return (
-    <Alert dismissible variant="danger">
-      <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-      <p>
-        Change this and that and try again.
-      </p>
-    </Alert>
-  )
-}
-
-function Report() {
-  return <h2>Report</h2>;
-}
-
-function Simulator() {
-  return <h2>simulator</h2>;
 }
 
 export default App;
