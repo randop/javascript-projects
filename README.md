@@ -33,7 +33,7 @@ Give a ⭐️ if this project helped you !
 
 ## 📝 License
 
-Copyright © 2019 [Randolph Ledesma](https://github.com/randop).<br />
+Copyright © 2021 [Randolph Ledesma](https://github.com/randop).<br />
 This project is [MIT](https://github.com/randop/javascript-projects/blob/master/LICENSE) licensed.
 
 ***
