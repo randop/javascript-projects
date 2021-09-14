@@ -9,7 +9,7 @@
     "throttle-debounce": "^2.1.0"
   },
   "devDependencies": {
-    "set-value": ">=2.0.1"
+    "set-value": ">=4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
