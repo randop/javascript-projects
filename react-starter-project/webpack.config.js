@@ -119,6 +119,7 @@ module.exports = (env, argv) => {
     config.output.filename = '[name].[chunkhash].js';
   }
 
+  /*** Example of using copy-webpack-plugin
   if (argv.mode==="production") {
     config.plugins.push(new CopyPlugin({
       patterns: [
@@ -126,6 +127,7 @@ module.exports = (env, argv) => {
       ],
     }));
   }
+  ***/
 
   return config;
 };

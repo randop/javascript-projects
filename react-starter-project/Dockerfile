@@ -6,8 +6,11 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY package.json .
-RUN npm install --no-audit --no-package-lock --production --loglevel verbose && npm cache clean --force
+COPY docker.production.js .
+RUN node docker.production.js
+RUN npm install --production --no-optional --no-audit --no-package-lock --loglevel info && npm cache clean --force
 COPY . .
+COPY public/dist/index.html public/index.html
 
 EXPOSE 3000
 RUN npm install -g --no-audit --no-package-lock --production --loglevel info pm2@5.2.0
