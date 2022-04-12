@@ -1,5 +1,5 @@
 {
-  "name": "empty-project",
+  "name": "randolph-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,11 @@
     "release": "webpack --mode production",
     "start": "webpack serve --hot --mode development",
     "test": "mocha",
-    "purge-modules": "rm -f package-lock.json && rm -Rf node_modules && npm cache clean --force"
+    "purge-modules": "rm -f package-lock.json && rm -Rf node_modules && npm cache clean --force",
+    "docker": "npm run release && docker buildx build --platform=linux/amd64 -t $npm_package_config_projectName ."
+  },
+  "config": {
+    "projectName": "randolph-project"
   },
   "dependencies": {
     "joi": "17.6.x"
