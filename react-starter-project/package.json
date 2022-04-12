@@ -10,7 +10,7 @@
     "clean-dist": "rm -f dist/*",
     "releasedev": "webpack --mode development",
     "release": "webpack --mode production",
-    "start": "webpack serve --hot --mode development",
+    "dev": "webpack serve --hot --mode development",
     "test": "mocha",
     "purge-modules": "rm -f package-lock.json && rm -Rf node_modules && npm cache clean --force",
     "docker": "npm run release && docker buildx build --platform=linux/amd64 -t $npm_package_config_projectName ."
@@ -38,6 +38,7 @@
     "clean-webpack-plugin": "4.x.x",
     "copy-webpack-plugin": "10.x.x",
     "css-loader": "6.x.x",
+    "dotenv": "16.0.0",
     "eslint": "8.x.x",
     "eslint-plugin-react": "7.x.x",
     "file-loader": "6.x.x",

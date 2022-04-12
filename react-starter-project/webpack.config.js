@@ -85,7 +85,10 @@ const config = {
     }),    
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin({
+      GOOGLE_MAPS_API_KEY: JSON.stringify('test_API-key2')
+    })
   ],
   devServer: {
     'static': {
