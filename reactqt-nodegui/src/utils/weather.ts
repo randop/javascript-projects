@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let theCity = "Cebu";
 
 export const getCurrentWeather = async () => {
-  let apiKey = "x1";
+  let apiKey = "3f50e7a31b00e33d9d1705bf7e5db8ee";
   let city = theCity;
   if (theCity==="Cebu") {
     theCity = "Manila";
