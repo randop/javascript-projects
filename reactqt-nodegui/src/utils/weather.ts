@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let theCity = "Cebu";
 
 export const getCurrentWeather = async () => {
-  let apiKey = "3f50e7a31b00e33d9d1705bf7e5db8ee";
+  let apiKey = "fb3338c78ba886f47e29a70d6f64c74c";
   let city = theCity;
   if (theCity==="Cebu") {
     theCity = "Manila";
@@ -13,6 +13,10 @@ export const getCurrentWeather = async () => {
 
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   const response = await fetch(url);
-  const data = await response.json();  
-  return data;
+  if (response.status!=200) {
+    return null;
+  } else {
+    const data = await response.json();  
+    return data;
+  }
 };

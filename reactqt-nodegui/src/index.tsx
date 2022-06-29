@@ -34,10 +34,11 @@ const App = () => {
   }, []);
 
   const getWeather = useCallback(async () => {
-    console.log("getWeather");
     try {
       const data = await getCurrentWeather();
-      setWeather(data);
+      if (data) {
+        setWeather(data);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +48,6 @@ const App = () => {
   const refreshHandler = useEventHandler(
     {
       [QPushButtonEvents.clicked]: async () => {
-        console.log("QPushButtonEvents.clicked");
         setWeather(defaultState);
         await getWeather();
       }
